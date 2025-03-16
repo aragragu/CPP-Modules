@@ -1,0 +1,16 @@
+relink in ex01
+table width
+std::endl
+
+
+question
+- what is a stream in contexet of input and output streams
+- the difference between std::endl and \n and what do you mean by buffer and flashing buffer
+- what will happen if put the constructor and the destructor in the private section of my class
+- what a constructor and a destructor and what does they do
+- what do you mean by this "(by member functions or friends of the class)"
+- what are static function inside a calss
+
+
+- check what does Ctrl + D do to getline
+
