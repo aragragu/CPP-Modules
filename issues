@@ -14,3 +14,61 @@ question
 
 - check what does Ctrl + D do to getline
 
+
+
+now i need to understand:
+
+
+- IO Streams : (iostream) : i want to explain these std::cout, std::cin, std::cerr and what are they and there syntha also  these : File streams (fstream, ifstream, ofstream)
+- also exlin this ""Functions & Function Overloading: Same function name with different parameters.Differences between C and C++ function declarations.
+also this :: References & Differences from Pointers
+
+How references (&) work compared to pointers.
+Cannot be null, must be initialized.
+
+- also this : "New & Delete Operators
+
+new vs. malloc(), delete vs. free()
+new[] and delete[] for arrays." and what is the difference between using new and the stack and why would we use this from the other
+
+- aslo this : "Classes & Objects
+
+class vs struct (default access specifiers).
+Member functions & attributes.
+The difference between public, private, and protected."
+- also this "Constructors & Destructors
+
+Default, parameterized, copy constructors.
+Destructor (~ClassName()).
+Rule of Three (if needed: destructor, copy constructor, copy assignment operator)."
+-aslo this "Encapsulation & Access Modifiers
+
+Using getters & setters to control access to private members."
+
+- also this "Memory Allocation (new & delete)
+
+Differences between stack and heap allocation.
+Preventing memory leaks."
+
+- also this "Pointers to Members
+
+Member function pointers: void (ClassName::*ptr)() = &ClassName::func;
+Calling member functions using this->*ptr."
+
+-aslo this "String Manipulation
+
+Using std::string instead of char*.
+std::string::find(), substr(), erase(), replace()."
+
+also this : "References (&) vs. Pointers (*)
+
+Passing by reference vs. passing by pointer.
+Avoiding unnecessary copying."
+
+- also this : "File Streams (fstream)
+
+ifstream, ofstream, and fstream for reading and writing files."  and there synthax ad so on
+- also this : "Switch Statements & Fallthrough Cases
+
+Proper break usage in switch-case.
+Avoiding -Werror=implicit-fallthrough." 

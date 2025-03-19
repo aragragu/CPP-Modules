@@ -10,6 +10,6 @@ Zombie::~Zombie(){
 	std::cout << this->name << " is destroyed" << std::endl;
 }
 
-void Zombie::annouce(){
+void Zombie::announce(){
 	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
