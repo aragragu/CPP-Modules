@@ -6,9 +6,11 @@
 class Simple
 {
 public:
-	float const pi;
+	int p;
 	int gaw;
-	Simple(float const p);
+	Simple();
+	// Simple(const Simple &other);
+	Simple& operator=(const Simple& src);
 	~Simple();
 };
 
