@@ -1,0 +1,4 @@
+Ad-hoc polymorphism : is when the same function/operator name works with different types.
+In C++, this happens via function overloading and operator overloading.
+function overloading : multiple functions can have the same name but must have different parameter types or numbers of parameters
+operator overloading : we define how built-in operators (like +, -, *, ==, <<, etc.) work for custom data types.

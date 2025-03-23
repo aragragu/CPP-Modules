@@ -21,7 +21,8 @@ int main()
 	// b = x;
 
 	// std::cout << "simple b.p = " << b.p << " and simple b.gaw = " << b.gaw << std::endl;
-	float a = 0.1;
+	float a = 1/3;
+	float b = 0.00000000000000001;
 	std::cout << a << std::endl;
-
+	std::cout << b << std::endl;
 }

@@ -2,3 +2,30 @@
 - also what is the difference between malloc and new and free and delete
 -  i wanna understand what happens under the hode when i pass an object by reference or by value and if i wanted to issinge the data momber of an object with the reference of of another object what happens in there also what happens whene passing an object by value to initialize the data member of another object and why would i use a reference instead of a normal variable
 -
+
+
+
+
+
+
+
+
+
+well i did finish working on the CPP Module 02 and i have thes question that i need to address so i am gonna giv my quetions and you will unswer them in a way that would make it easy for ne understand and remeber and don't simplifie things to the level where u explain with nothing related to it so i am gonna give the subject and the questions as i said so unswer them and if there's anything else i need to understand u can add it to the unswer, so remember clean unswers easy to remember and and easy to undersand also remember that i need to explain this to peaple one at a time so not everyone are in the same level so put that in considiration also i am gonna provide you with a cpp book for info and also my code also remember i am asking for a detaild explanation but not complicated one and explain the concepts and how do they work as much as you can also act like you don't anything about this and u are just learning like me so start asking question about everything there's and answer them for me also integrate this when u are explaining the code and the question i am gonna ask you too:
+- i need to undersand these conceptes "Ad-hoc polymorphism, operator overloading and the Orthodox Canonical class form" also where did i use them in my code
+- explain this "Orthodox Canonical Form" and give me everything there's to know about each constructor and there syntax and what each in them means
+- what is a floating point number and a fixed point number and how are they represented in memory also what is the diffrence between them and when do we use one of them not the other also the benifits of using one not the other
+- what the keywork static means in a class
+- also in the copy constructor we did work with the copy assignement constructor as u can see in my code so explain that also in the copy constructor why did we work use a reference to the object as a parameter and in copy assignemet opeartor why do we return a reference aslo how does it work and also explain the concepts of deep and shallow copy in detail and when do we work with them...
+a reference , also explain all technical details in them
+- explain the code of my ex00 in details and what each thing do , and if u can combine all the question i asked when explaining my code
+- explain this synatax "std::ostream& operator<<(std::ostream& out, const Fixed& fixed);" and what does it do also why did we wourk we reference and why didn't we put inside the class also i was asked about this in the exercise "An overload of the insertion («) operator that inserts a floating-point representation of the fixed-point number into the output stream object passed as a parameter" so explain the concept as much as u can
+- also explain everything there's to know about the shifting in the ex01 and why did we shift them aslo what happen to the varibale when shifting it by fract_bit and dishifting it and so on .....
+
+- i want to explain these functions declarations "	bool operator<(const Fixed& src); bool operator>(const Fixed &src); bool operator>=(const Fixed &src); bool operator<=(const Fixed &src); bool operator==(const Fixed &src); bool operator!=(const Fixed &src); Fixed& operator++(); Fixed operator++(int); Fixed& operator--(); Fixed operator--(int); Fixed operator+(const Fixed &src) const; Fixed operator-(const Fixed &src) const; Fixed operator*(const Fixed &src) const; Fixed operator/(const Fixed &src) const; static Fixed &min(Fixed &S1, Fixed &S2); static const Fixed &min(const Fixed&fixed_1, const Fixed&fixed_2); static Fixed &max(Fixed &S1, Fixed &S2); static const Fixed &max(const Fixed &S1, const Fixed &S2);" and what they are called also in here "	Fixed& operator++(); Fixed operator++(int);" what is the int stands for and so on ...
+- aslo explain these two concetpes overloading and overriding where did i use them in my code and anything related to it and so on .....
+- in the cpoy contructur function why do we pass it as const
+- also what is the difference between malloc and new and free and delete
+-  i wanna understand what happens under the hode when i pass an object by reference or by value and if i wanted to issinge the data momber of an object with the reference of of another object what happens in there also what happens whene passing an object by value to initialize the data member of another object and why would i use a reference instead of a normal variable
+-also as i said before act like it's you first time ready C++ and start asking question like even dumber i mean more curious about evrything .....
+
