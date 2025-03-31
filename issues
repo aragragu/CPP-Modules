@@ -29,3 +29,25 @@ a reference , also explain all technical details in them
 -  i wanna understand what happens under the hode when i pass an object by reference or by value and if i wanted to issinge the data momber of an object with the reference of of another object what happens in there also what happens whene passing an object by value to initialize the data member of another object and why would i use a reference instead of a normal variable
 -also as i said before act like it's you first time ready C++ and start asking question like even dumber i mean more curious about evrything .....
 
+
+
+
+
+
+
+
+
+
+
+
+CPP Module 03 :
+
+
+ex01:
+- in inheretnece why does the base class constructor is bieng called also why does it been called first not the derived class and why in the dectruction it's in revesed order
+- when a drevide class inherit from a base class does the data members and methods changes there access specifier or not , and what does happen in there
+- also why do i need to call the base class constructur and intialize it with the name i got from the constructor of the derived class
+- in ScavTrap in the copy constructor and parametrize contsructor  why do i call the ClapTrap constructor and also in the copy assignment operator why do i call the copy assignment operator of ClapTrap
+- how does the precess of inheritence works in memroy , in full details
+- if i modified the data member in the base class do they get changed in the derived class too, also if i changed the data members in the derived class do they get changed too iin the bas class
+
