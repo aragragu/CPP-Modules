@@ -2,7 +2,7 @@
 
 
 ScavTrap::ScavTrap() : ClapTrap(){
-	std::cout << "ScavTrap default constructer as been called" << std::endl;
+	std::cout << "ScavTrap default constructor: [" << GetName() << "] created." << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -10,22 +10,24 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	SetHits(100);
 	SetEnergy(50);
 	SetAD(20);
-	std::cout << "ScavTrap " << name << " has been created." << std::endl;
+	std::cout << "ScavTrap [" << name << "] has been created." << std::endl;
 }
 
 ScavTrap::~ScavTrap(){
-	std::cout << "ScavTrap " << GetName() << " has been destroyed." << std::endl;
+	std::cout << "ScavTrap destructor: [" << GetName() << "] destroyed." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src)
 {
 	*this = src;
+	std::cout << "ScavTrap copy constructor: [" << GetName() << "] copied from source." << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
 	if (this != &src)
 		ClapTrap::operator=(src);
+	std::cout << "ScavTrap copy assignment: [" << GetName() << "] assigned from source." << std::endl;
 	return *this;
 }
 

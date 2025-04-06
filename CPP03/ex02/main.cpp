@@ -23,7 +23,7 @@ int main()
 	f1.attack("Target3");
 	f1.takeDamage(20);
 	f1.beRepaired(15);
-	f1.highFivesGuys(); // Unique FragTrap method
+	f1.highFivesGuys(); 
 
 	std::cout << "\n=== Testing Copy Constructor for FragTrap ===" << std::endl;
 	FragTrap f2(f1);

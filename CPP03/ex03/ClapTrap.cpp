@@ -56,6 +56,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (hit_points > 0)
 	{
+		std::cout << "hit points = [" << hit_points << "]" << std::endl;
 		if ((int)amount >= hit_points)
 		{
 			hit_points = 0;

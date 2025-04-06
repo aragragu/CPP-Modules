@@ -1,7 +1,10 @@
 #include "ScavTrap.hpp"
 
-
-ScavTrap::ScavTrap() : ClapTrap(){
+ScavTrap::ScavTrap() : ClapTrap()
+{
+	hit_points = 100;
+	energy_points = 50;
+	attack_damage = 20;
 	std::cout << "ScavTrap default constructor: [" << name << "] created." << std::endl;
 }
 
@@ -13,17 +16,18 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap [" << name << "] has been created." << std::endl;
 }
 
-ScavTrap::~ScavTrap(){
+ScavTrap::~ScavTrap()
+{
 	std::cout << "ScavTrap destructor: [" << name << "] destroyed." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src)
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src)
 {
 	*this = src;
 	std::cout << "ScavTrap copy constructor: [" << name << "] copied from source." << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& src)
+ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
 	if (this != &src)
 		ClapTrap::operator=(src);

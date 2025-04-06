@@ -1,24 +1,23 @@
 #include "ClapTrap.hpp"
 
-
-ClapTrap::ClapTrap() : hit_points(10), energy_points(10), attack_damage(0){
-	std::cout << "ClapTrap default constructor called." << std::endl;
+ClapTrap::ClapTrap() : name("default"), hit_points(10), energy_points(10), attack_damage(0){
+	std::cout << "ClapTrap default constructor: [" << name << "] created." << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap " << name << " has been destroyed." << std::endl;
+	std::cout << "ClapTrap destructor: [" << name << "] destroyed." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hit_points(10), energy_points(10), attack_damage(0){
-	std::cout << "ClapTrap " << name << " has been created." << std::endl;
+	std::cout << "ClapTrap parameterized constructor: [" << name << "] created." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& src){
+ClapTrap::ClapTrap(const ClapTrap &src){
 	*this = src;
-	std::cout << "ClapTrap " << name << " has been copied." << std::endl;
+	std::cout << "ClapTrap copy constructor: [" << name << "] copied from source." << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& src){
+ClapTrap &ClapTrap::operator=(const ClapTrap &src){
 	if (this != &src)
 	{
 		name = src.name;
@@ -26,11 +25,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& src){
 		energy_points = src.energy_points;
 		attack_damage = src.attack_damage;
 	}
+	std::cout << "ClapTrap copy assignment: [" << name << "] assigned from source." << std::endl;
 	return *this;
 }
 
-
-void ClapTrap::attack(const std::string &target){
+void ClapTrap::attack(const std::string &target)
+{
 	if (energy_points > 0 && hit_points > 0)
 	{
 		energy_points -= 1;
@@ -40,7 +40,8 @@ void ClapTrap::attack(const std::string &target){
 		std::cout << "ClapTrap " << name << " has insufficient energy or hit points to attack." << std::endl;
 }
 
-void ClapTrap::beRepaired(unsigned int amount){
+void ClapTrap::beRepaired(unsigned int amount)
+{
 	if (energy_points > 0 && hit_points > 0)
 	{
 		hit_points += amount;
@@ -72,11 +73,13 @@ void ClapTrap::takeDamage(unsigned int amount)
 	}
 }
 
-void ClapTrap::SetName(std::string name){
+void ClapTrap::SetName(std::string name)
+{
 	this->name = name;
 }
 
-std::string ClapTrap::GetName(void) const{
+std::string ClapTrap::GetName(void) const
+{
 	return this->name;
 }
 
@@ -85,11 +88,13 @@ void ClapTrap::SetHits(unsigned int hit)
 	this->hit_points = hit;
 }
 
-int ClapTrap::GetHits(void) const{
+int ClapTrap::GetHits(void) const
+{
 	return hit_points;
 }
 
-void ClapTrap::SetEnergy(unsigned int energy){
+void ClapTrap::SetEnergy(unsigned int energy)
+{
 	this->energy_points = energy;
 }
 

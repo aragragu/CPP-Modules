@@ -51,3 +51,22 @@ ex01:
 - how does the precess of inheritence works in memroy , in full details
 - if i modified the data member in the base class do they get changed in the derived class too, also if i changed the data members in the derived class do they get changed too iin the bas class
 
+
+
+- what is the meaning of this line "ClapTrap::operator=(src);"
+- you said that in the copy constructor of thr derived class that *this = src is not necessary in my code but this is only if the derived class has not data member
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DON'T FORGET THE VIRTUAL DESTRUCTORS
