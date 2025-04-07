@@ -52,21 +52,45 @@ ex01:
 - if i modified the data member in the base class do they get changed in the derived class too, also if i changed the data members in the derived class do they get changed too iin the bas class
 
 
+- what is inheretence what are it's type nd everything there's about it that needs to be known also explain with examples
+- what is function overriding and if i did not use virtual with a function in the base class and declare it again in the derived class and redifine , what we call that process
+- what is virtual function and how deos it operate under the hood also explain with examples
+- what is the vtable and how does it work under the hood and by that i mean virtual function and vitual base classe so explain everything that needs to be known and how do it works under the hood also explain with examples
+- in the copy constructor and the copy assigenment if i did this (*this = src) does it mean that the base part also is gonna be copied also when i call the the base class copy constructor from the derived class copy constructor it does not retrun anything and the type are the same so how do they work under the hood also explain with examples
+- also in the copy assigenment operator  what is the meaning of this line "ClapTrap::operator=(src);" and if it calls the the copy assigenment operator of the base class how does it return what was copied so explain this also under the hood also explain with examples
+- you said that in the copy constructor of thr derived class that *this = src is not necessary in my code but this is only if the derived class has not data member also explain with examples
+- in virtual inheitance , in mutiple inheritance does the ScavTrap and FragTrap inherit the same base class ClapTrap and do they both shre the same base class in memory also in the diamondTrap if it inherited from ScavTrap and FragTrap does diamond has two subobjects of the base class ClapTrap and when whe use virtual base class what exaclty happens and how does the vtable operate also what does happen under the hood in memroy
 
-- what is the meaning of this line "ClapTrap::operator=(src);"
-- you said that in the copy constructor of thr derived class that *this = src is not necessary in my code but this is only if the derived class has not data member
-
-
-
-
-
-
-
-
-
+- also when i try to assign an allocated DiamondTrap object to a ClapTrap pointer , when i try to access the methods that are in DiamondTrap i couldn't also with ScavTrap i couldn't
 
 
+
+
+
+
+
+
+- u said that in each class that has a virtual function  a vtable is created so for the derived class does it have a vtable or only the base class
+- also i need to understand why do we use virtual with the destructor also with the class inheritence so explain this under the hood and in details of what exacly happening , in the DiamondTrap example
+
+
+- in the diamond trap if i did declare the a base class pointer and assigne it a derived class why can't i call the functions of the derived class from the base pointer
+- also what exacly happen under the hood in the virtual class inheritance and how does it work (explain it using ex03 from CPP Module 03) and walk me throught what happening exactly
+
+- when i use virtual only with the destructor does the other inherited function get's put in the vtable even thought they are not virtual function , and when i did look it up it's called function hidding if i did redefine the functions from the base class in the derived class
 
 
 
 DON'T FORGET THE VIRTUAL DESTRUCTORS
+
+
+
+
+
+
+
+
+CPP MODULE 04
+
+
+in ex00 : add wrongdog.cpp and .hpp
