@@ -1,28 +1,65 @@
 #include <iostream>
+#include <string>
 
 
+// class Animal
+// {
+// public:
+// 	virtual void makeSound() const = 0; // Pure virtual functio
+// 	virtual ~Animal() {}
+// };
 
+// class Dog : public Animal
+// {
+// public:
+// 	void makeSound() const
+// 	{
+// 		std::cout << "Woof!" << std::endl;
+// 	}
+// };
+
+// class Cat : public Animal
+// {
+// public:
+// 	void makeSound() const
+// 	{
+// 		std::cout << "Meow!" << std::endl;
+// 	}
+// };
+
+// void animalSound(const Animal &animal)
+// {
+// 	animal.makeSound();
+// }
 
 int main()
 {
-	// Simple a;
-	// a.p = 10;
-	// a.gaw = 20;
-	// Simple x;
-	// x.gaw = 50;
-	// x.p = 100;
-
-	// std::cout << "simple a.p = "<<a.p<<" and simple a.gaw = "<<a.gaw<< std::endl;
-	// Simple b = a;
-
-	// std::cout << "simple b.p = " << b.p << " and simple b.gaw = " << b.gaw << std::endl;
+	// allo->makeSound();
+	// animalSound(dog); // Outputs: Woof!
+	// animalSound(cat); // Outputs: Meow!
+	// delete allo;
 
 
-	// b = x;
+	std::string allo[4];
+	allo[0] = "0000000";
+	allo[1] = "1111111";
+	allo[2] = "2222222";
+	allo[3] = "3333333";
 
-	// std::cout << "simple b.p = " << b.p << " and simple b.gaw = " << b.gaw << std::endl;
-	float a = 1/3;
-	float b = 0.00000000000000001;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
+	int index = 4;
+	int idx = 1;
+
+	if (idx < 0 || index == 0 || idx >= index)
+		return 0;
+	allo[idx] = "empty";
+	for (int i = idx; i < 3; i++)
+	{
+		allo[i] = allo[i + 1];
+	}
+
+	allo[3] = "";
+	for (size_t x = 0; x < 4; x++)
+		std::cout << "allo[" << x << "] = <<" << allo[x] << ">>" << std::endl;
+
+	return 0;
 }

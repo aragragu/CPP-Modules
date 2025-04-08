@@ -1,0 +1,15 @@
+- when working with a base class that has a pure virtual function , can i declare it and use the methods inside it.
+- what is an abstract class
+- i need to understand this in deepth (vtable & vptr : -Each class with virtual functions has a vtable (an internal table of function pointers). - Each object of such a class carries a hidden vptr pointing to its class’s vtable.) also u said that each class has a vtable but but each object of that class has vptr that pointes to the vtable of the class and that vtable is the one that pointes to the virtual function also does a derived class that inherited from a base class that contains a virtual function also gets a vtable(i mean the derived class)
+- also in here "vtable & vptr Each class with virtual functions has a vtable (an internal table of function pointers). Each object of such a class carries a hidden vptr pointing to its class’s vtable. Virtual Function Call When you do animalPtr->makeSound(), the compiler generates code that: Looks up makeSound in the vtable via the object’s vptr. Calls the function pointer found there. That pointer points to the subtype’s override (e.g. Dog::makeSound())." i want you to give me an example of each case so i can understand and u can just write it without any code , and walk through each thing that happen in each case
+
+
+
+- so if i want to work directly with an abstract class i can't and i won't be able to access the non virtual function or the virtual function in it from a base class object or base class pointer
+- also is inheretence
+
+
+-working with base class
+- if a base class has a virtual function and it's derived class inherited the base class but did not override the function , what exacly happen in the vtable of all the class
+- if a class has pure virtual function , and it has a derived class , if i tried to access the base class , would that be possible or not
+- when using pure vituale function do they work with vtable and vptr when trying to call a function of derived class

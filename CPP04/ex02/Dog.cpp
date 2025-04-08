@@ -23,7 +23,7 @@ Dog::Dog(const Dog &src) : Animal(src)
 {
 	std::cout << "Dog: Copy constructor invoked; copying Dog-specific data." << std::endl;
 	brain = new Brain(*src.brain);
-	*this = src;
+	// *this = src;
 }
 
 Dog &Dog::operator=(const Dog &src)

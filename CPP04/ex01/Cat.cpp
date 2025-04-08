@@ -23,7 +23,7 @@ Cat::Cat(const Cat &src) : Animal(src)
 {
 	std::cout << "Cat: Copy constructor invoked; duplicating Cat instance." << std::endl;
 	brain = new Brain(*src.brain);
-	*this = src;
+	// *this = src;
 }
 
 Cat &Cat::operator=(const Cat &src)
