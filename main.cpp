@@ -2,35 +2,41 @@
 #include <string>
 
 
-// class Animal
-// {
-// public:
-// 	virtual void makeSound() const = 0; // Pure virtual functio
-// 	virtual ~Animal() {}
-// };
+class Animal
+{
+protected:
+	int i;
+public:
+	int getInt()
+	{
+		return i;
+	}
+	virtual void makeSound() const; // Pure virtual functio
+	virtual ~Animal() {}
+};
 
-// class Dog : public Animal
-// {
-// public:
-// 	void makeSound() const
-// 	{
-// 		std::cout << "Woof!" << std::endl;
-// 	}
-// };
+class Dog : public Animal
+{
+public:
+	void makeSound() const
+	{
+		std::cout << "Woof!" << std::endl;
+	}
+};
 
-// class Cat : public Animal
-// {
-// public:
-// 	void makeSound() const
-// 	{
-// 		std::cout << "Meow!" << std::endl;
-// 	}
-// };
+class Cat : public Animal
+{
+public:
+	void makeSound() const
+	{
+		std::cout << "Meow!" << std::endl;
+	}
+};
 
-// void animalSound(const Animal &animal)
-// {
-// 	animal.makeSound();
-// }
+void animalSound(const Animal &animal)
+{
+	animal.makeSound();
+}
 
 int main()
 {

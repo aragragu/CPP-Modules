@@ -30,5 +30,6 @@ const std::string &AMateria::getType() const{
 }
 
 void AMateria::use(ICharacter &target){
-	std::cout << "character used [" << type << "]" << "on [" << target.getName() << "]" << std::endl;
+	// std::cout << "character used [" << type << "]" << "on [" << target.getName() << "]" << std::endl;
+	(void)target;
 }

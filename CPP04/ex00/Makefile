@@ -3,7 +3,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRC = main.cpp Animal.cpp Cat.cpp  Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp
+SRC = main.cpp Animal.cpp Cat.cpp  Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all : $(NAME)
@@ -14,7 +14,7 @@ $(NAME) : $(OBJ)
 %.o : %.cpp
 		$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ) : Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp
+$(OBJ) : Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 
 clean:
 	$(RM) $(OBJ)

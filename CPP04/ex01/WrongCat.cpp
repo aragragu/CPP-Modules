@@ -23,7 +23,7 @@ WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 {
 	std::cout << "WrongCat: Copy constructor invoked; duplicating WrongCat instance." << std::endl;
 	brain = new Brain(*src.brain);
-	*this = src;
+	// *this = src;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &src)

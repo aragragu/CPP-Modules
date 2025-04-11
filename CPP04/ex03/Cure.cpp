@@ -8,7 +8,8 @@ Cure::~Cure(){
 	std::cout << "Cure: Destructor invoked;" << std::endl;
 }
 
-Cure::Cure(std::string& type) : AMateria("cure"){
+Cure::Cure(const std::string &type) : AMateria("cure")
+{
 	(void)type;
 	std::cout << "Cure: Parameterized constructor invoked;" << std::endl;
 }

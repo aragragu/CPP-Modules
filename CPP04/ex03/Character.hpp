@@ -15,7 +15,7 @@ private:
 	std::string	name;
 public:
 	Character();
-	Character(std::string& name);
+	Character(const std::string &name);
 	Character(const Character& src);
 	Character& operator=(const Character& src);
 	~Character();

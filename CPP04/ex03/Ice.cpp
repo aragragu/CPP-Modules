@@ -1,6 +1,6 @@
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria("Ice")
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "Ice: Default constructor invoked;" << std::endl;
 }
@@ -10,7 +10,7 @@ Ice::~Ice()
 	std::cout << "Ice: Destructor invoked;" << std::endl;
 }
 
-Ice::Ice(std::string &type) : AMateria("Ice")
+Ice::Ice(const std::string &type) : AMateria("ice")
 {
 	(void)type;
 	std::cout << "Ice: Parameterized constructor invoked;" << std::endl;

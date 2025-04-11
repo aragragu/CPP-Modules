@@ -11,9 +11,9 @@ Cat::~Cat()
 	std::cout << "Cat: Destructor invoked; cleaning up Cat instance." << std::endl;
 }
 
-Cat::Cat(const std::string &type) : Animal(type)
+Cat::Cat(const std::string &type) : Animal("Cat")
 {
-	this->type = "Cat";
+	(void)type;
 	std::cout << "Cat: Parameterized constructor invoked; overriding type to 'Cat'." << std::endl;
 }
 

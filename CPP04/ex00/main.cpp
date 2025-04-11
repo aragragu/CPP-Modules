@@ -8,13 +8,14 @@ int main()
 	const Animal *j = new Dog();
 	const Animal *i = new Cat();
 	const WrongAnimal *k = new WrongCat();
+	std::cout << meta->getType() << " " << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << k->getType() << " " << std::endl;
-	i->makeSound(); // will output the cat sound!
+	meta->makeSound();
+	i->makeSound();
 	j->makeSound();
 	k->makeSound();
-	meta->makeSound();
 
 	delete meta;
 	delete j;

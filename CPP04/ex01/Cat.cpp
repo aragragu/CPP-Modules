@@ -40,7 +40,7 @@ Cat &Cat::operator=(const Cat &src)
 
 void Cat::makeSound() const
 {
-	std::cout << "Cat sound: Meow Meow." << std::endl;
+	std::cout << "Meow Meow." << std::endl;
 }
 
 Brain *Cat::getBrain(void)

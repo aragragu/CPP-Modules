@@ -11,9 +11,9 @@ Dog::~Dog()
 	std::cout << "Dog: Destructor invoked; cleaning up Dog instance." << std::endl;
 }
 
-Dog::Dog(const std::string &type) : Animal(type)
+Dog::Dog(const std::string &type) : Animal("Dog")
 {
-	this->type = "Dog";
+	(void)type;
 	std::cout << "Dog: Parameterized constructor invoked; overriding type to 'Dog'." << std::endl;
 }
 

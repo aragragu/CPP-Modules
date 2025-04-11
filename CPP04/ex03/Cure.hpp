@@ -1,4 +1,4 @@
-#ifndef CURE_HPP`
+#ifndef CURE_HPP
 #define CURE_HPP
 
 
@@ -8,7 +8,7 @@ class Cure : public AMateria
 {
 public:
 	Cure();
-	Cure(std::string& name);
+	Cure(const std::string &name);
 	Cure(const Cure& src);
 	Cure& operator=(const Cure& src);
 	~Cure();

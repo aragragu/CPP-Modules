@@ -13,3 +13,9 @@
 - if a base class has a virtual function and it's derived class inherited the base class but did not override the function , what exacly happen in the vtable of all the class
 - if a class has pure virtual function , and it has a derived class , if i tried to access the base class , would that be possible or not
 - when using pure vituale function do they work with vtable and vptr when trying to call a function of derived class
+
+
+
+
+	delete allo;
+	delete allo2;

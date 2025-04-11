@@ -40,7 +40,7 @@ Dog &Dog::operator=(const Dog &src)
 
 void Dog::makeSound() const
 {
-	std::cout << "Dog sound: Woof Woof." << std::endl;
+	std::cout << "Woof Woof." << std::endl;
 }
 
 Brain *Dog::getBrain(void)
