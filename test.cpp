@@ -1,34 +1,23 @@
-#include "test1.hpp"
+#include <iostream>
+#include <string>
 
-
-
-
-
-Simple::Simple() : p(0), gaw(00) {
-	std::cout << "constaracture called " << std::endl;
-}
-
-Simple& Simple::operator=(const Simple& src)
+void divide(int a, int b)
 {
-	if (this == &src)
-		return *this;
-	gaw = src.gaw;
-	p = src.p;
-	return *this;
+	if (b == 0)
+		throw std::string("Division by zero!");
+	std::cout << "Result: " << a / b << std::endl;
 }
 
-	// Simple::Simple(const Simple &other): p(other.p), gaw(other.gaw){
-	// 	std::cout << "copy constructor was called" << std::endl;
-	// }
-
-	// void Simple::set_value(int i, int x)
-	// {
-	// 	this->p = i;
-	// 	this->gaw = x;
-	// }
-
-	Simple::~Simple()
+int main()
 {
-	std::cout << "destructure called" << std::endl;
-}
+	try
+	{
+		divide(10, 0);
+	}
+	catch (std::string &e)
+	{
+		std::cout << "Caught an exception: " << e << std::endl;
+	}
 
+	return 0;
+}

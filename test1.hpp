@@ -2,16 +2,18 @@
 #define TEST1_HPP
 
 #include <iostream>
+#include <string>
 
 class Simple
 {
-public:
-	int p;
-	int gaw;
-	Simple();
-	// Simple(const Simple &other);
-	Simple& operator=(const Simple& src);
-	~Simple();
+	private:
+		const std::string name;
+		int grade;
+	public:
+		Simple(std::string& name, int grade);
+		// Simple(const Simple &other);
+		Simple& operator=(const Simple& src);
+		~Simple();
 };
 
 #endif
