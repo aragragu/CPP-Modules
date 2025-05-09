@@ -1,22 +1,19 @@
 #include "Bureaucrat.hpp"
 
-
-
 int main()
 {
 	try
 	{
 		Bureaucrat allo("anas", 5);
-		allo.increamentGrade();
-		allo.increamentGrade();
-		allo.increamentGrade();
-		allo.increamentGrade();
+		allo.IncrementGrade();
+		allo.IncrementGrade();
+		allo.IncrementGrade();
+		allo.IncrementGrade();
 		std::cout << allo;
-		// allo.increamentGrade();
+		// allo.IncrementGrade();
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 }
