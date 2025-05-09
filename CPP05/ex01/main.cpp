@@ -8,11 +8,13 @@ int main()
 	{
 		Bureaucrat john("John", 50);
 		Bureaucrat alice("Alice", 1);
+		Bureaucrat malik("malik", 25);
 
 		Form taxForm("TaxForm", 25, 10); // Requires grade 25 to sign
 
 		std::cout << john << std::endl;
 		std::cout << alice << std::endl;
+		std::cout << malik << std::endl;
 		std::cout << taxForm << std::endl;
 
 		std::cout << "---- John attempts to sign ----" << std::endl;
@@ -21,6 +23,9 @@ int main()
 		std::cout << "---- Alice attempts to sign ----" << std::endl;
 		alice.signForm(taxForm); // should succeed
 
+		std::cout << "---- malik attempts to sign ----" << std::endl;
+		malik.signForm(taxForm); // should succeed
+
 		std::cout << "---- Final Form Status ----" << std::endl;
 		std::cout << taxForm << std::endl;
 	}
@@ -28,6 +33,9 @@ int main()
 	{
 		std::cerr << "Unhandled exception: " << e.what() << std::endl;
 	}
-
+	// catch (const char *e)
+	// {
+	// 	std::cerr << "Error : "  << e << std::endl;
+	// }
 	return 0;
 }

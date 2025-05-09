@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC = AForm.cpp Bureaucrat.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
-		ShrubberyCreationForm.cpp
+		ShrubberyCreationForm.cpp Intern.cpp
 
 
 OBJ := $(SRC:%.cpp=%.o)
@@ -17,7 +17,7 @@ $(NAME) : $(OBJ)
 %.o : %.cpp
 		$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ) : AForm.hpp Bureaucrat.hpp Makefile PresidentialPardonForm.hpp RobotomyRequestForm.hpp 	ShrubberyCreationForm.hpp
+$(OBJ) : AForm.hpp Bureaucrat.hpp Makefile PresidentialPardonForm.hpp RobotomyRequestForm.hpp 	ShrubberyCreationForm.hpp Intern.hpp
 
 clean:
 	$(RM) $(OBJ)

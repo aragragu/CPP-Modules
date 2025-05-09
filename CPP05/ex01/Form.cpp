@@ -1,6 +1,7 @@
 #include "Form.hpp"
 
-Form::Form() : _name("default"), _signed(false), _signGrade(150), _executeGrade(150){
+Form::Form() : _name("default"), _signed(false), _signGrade(150), _executeGrade(150)
+{
 }
 
 Form::Form(std::string name, int signGrade, int executeGrade) : _name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade)
@@ -39,6 +40,11 @@ const char *Form::GradeTooLowException::what() const throw()
 	return "Grade Too Low";
 }
 
+const char *Form::FormAlreadySigned::what() const throw()
+{
+	return "form is already signed";
+}
+
 std::string Form::getName() const
 {
 	return _name;
@@ -59,7 +65,8 @@ int Form::getexecuteGrade() const
 	return _executeGrade;
 }
 
-std::ostream &operator<<(std::ostream &out, const Form &form){
+std::ostream &operator<<(std::ostream &out, const Form &form)
+{
 	out << form.getName() << ", and signedGrade is <" << form.getsignGrade() << "> and executeGrade is <" << form.getexecuteGrade() << "> ";
 	if (form.getSign() == true)
 		out << "and signed = [TRUE]";
@@ -68,9 +75,15 @@ std::ostream &operator<<(std::ostream &out, const Form &form){
 	return out;
 }
 
-void Form::beSigned(Bureaucrat bureaucrat){
-	if (this->_signGrade <= bureaucrat.getGrade())
+void Form::beSigned(Bureaucrat bureaucrat)
+{
+	// i need to add  another throw in case the form is already signed
+	if (this->getSign())
+		throw FormAlreadySigned();
+	if (this->_signGrade >= bureaucrat.getGrade())
+	{
 		this->_signed = true;
+	}
 	else
 		throw GradeTooLowException();
 }

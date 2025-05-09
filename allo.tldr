@@ -23,16 +23,51 @@
 			"com.tldraw.shape.geo": 10,
 			"com.tldraw.shape.note": 9,
 			"com.tldraw.shape.line": 5,
-			"com.tldraw.shape.frame": 0,
+			"com.tldraw.shape.frame": 1,
 			"com.tldraw.shape.arrow": 5,
 			"com.tldraw.shape.highlight": 1,
 			"com.tldraw.shape.embed": 4,
-			"com.tldraw.shape.image": 4,
-			"com.tldraw.shape.video": 2,
+			"com.tldraw.shape.image": 5,
+			"com.tldraw.shape.video": 3,
 			"com.tldraw.binding.arrow": 0
 		}
 	},
 	"records": [
+		{
+			"x": -415.7877451509589,
+			"y": 6503.141700665966,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:-rp21PYrQBQ_4EoKR3yYE",
+			"type": "draw",
+			"props": {
+				"segments": [
+					{
+						"type": "free",
+						"points": [
+							{
+								"x": 0,
+								"y": 0,
+								"z": 0.5
+							}
+						]
+					}
+				],
+				"color": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"isComplete": true,
+				"isClosed": false,
+				"isPen": false,
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "b0q0DB",
+			"typeName": "shape"
+		},
 		{
 			"x": 365,
 			"y": 484,
@@ -114,12 +149,12 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 0,
-			"y": 0,
-			"lastActivityTimestamp": 0,
-			"meta": {},
 			"id": "pointer:pointer",
-			"typeName": "pointer"
+			"typeName": "pointer",
+			"x": -2496.2403071593726,
+			"y": 5748.62697834191,
+			"lastActivityTimestamp": 1746548471253,
+			"meta": {}
 		},
 		{
 			"x": 737.5905838060032,
@@ -2462,9 +2497,9 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 729.3902658096406,
-			"y": 241.23792892267312,
-			"z": 0.3360145511054889,
+			"x": 2511.38079468546,
+			"y": -5126.490581815419,
+			"z": 0.7265287845617201,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -5160,9 +5195,11 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": null,
+			"editingShapeId": "shape:T5CTnJrL8ryJFQZPeZshk",
 			"croppingShapeId": null,
-			"selectedShapeIds": [],
+			"selectedShapeIds": [
+				"shape:T5CTnJrL8ryJFQZPeZshk"
+			],
 			"hoveredShapeId": null,
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
@@ -5769,7 +5806,8 @@
 				"url": "",
 				"crop": null,
 				"flipX": false,
-				"flipY": false
+				"flipY": false,
+				"altText": ""
 			},
 			"parentId": "page:page",
 			"index": "b0p169",
@@ -7129,6 +7167,81 @@
 				"isAnimated": false
 			},
 			"meta": {}
+		},
+		{
+			"x": -2008.426285447964,
+			"y": 6014.425903101903,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:JdxHry6TkQK5I4gdLlNhj",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1249,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "execption are a way to signal error or unusual condition from one part of the code to another "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "without following normal code execution "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "so we a program throws an exception , program control jumps directly to the nearest exception "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "handler (catcher), and when doing that potentially skipping multiple function calls in the call stack "
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "b0s3hE",
+			"typeName": "shape"
 		},
 		{
 			"x": 1066,
@@ -9273,6 +9386,36 @@
 			},
 			"parentId": "page:page",
 			"index": "aE5w8",
+			"typeName": "shape"
+		},
+		{
+			"x": -1988.3457710569937,
+			"y": 5330.198959439138,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:T5CTnJrL8ryJFQZPeZshk",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 8,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph"
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "b0t8Z9",
 			"typeName": "shape"
 		},
 		{
@@ -11891,8 +12034,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1020,
-				"h": 1654
+				"w": 851,
+				"h": 1102
 			},
 			"insets": [
 				false,
@@ -11909,7 +12052,7 @@
 			"isFocused": true,
 			"devicePixelRatio": 1,
 			"isCoarsePointer": false,
-			"isHoveringCanvas": null,
+			"isHoveringCanvas": false,
 			"openMenus": [],
 			"isChangingStyle": false,
 			"isReadonly": false,
@@ -13852,6 +13995,41 @@
 			},
 			"parentId": "page:page",
 			"index": "aV2u5",
+			"typeName": "shape"
+		},
+		{
+			"x": 1613.8202141445026,
+			"y": 6871.115948243613,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:RAluXWsdy9A1WQvS4wV2E",
+			"type": "draw",
+			"props": {
+				"segments": [
+					{
+						"type": "free",
+						"points": [
+							{
+								"x": 0,
+								"y": 0,
+								"z": 0.5
+							}
+						]
+					}
+				],
+				"color": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"isComplete": true,
+				"isClosed": false,
+				"isPen": false,
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "b0r9Yl",
 			"typeName": "shape"
 		},
 		{

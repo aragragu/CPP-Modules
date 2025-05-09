@@ -99,5 +99,5 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 		this->_signed = true;
 	else
 		throw GradeTooLowException();
-	// throw "the grade is not right";
+	// throw GradeTooLowException();
 }

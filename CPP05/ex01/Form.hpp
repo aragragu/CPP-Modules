@@ -34,16 +34,19 @@ public:
 		virtual const char *what() const throw();
 	};
 
+	class FormAlreadySigned : public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
 	std::string getName() const;
 	int getsignGrade() const;
 	int getexecuteGrade() const;
 	bool getSign() const;
 
-
 	void beSigned(Bureaucrat bureaucrat);
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &bureaucrat);
-
 
 #endif

@@ -70,4 +70,3 @@ std::ostream &operator<<(std::ostream &out, const AForm &bureaucrat);
 #include "Bureaucrat.hpp"
 
 #endif
-
