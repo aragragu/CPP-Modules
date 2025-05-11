@@ -1,30 +1,110 @@
+#include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 int main()
 {
+
+	// Create bureaucrats
+	Bureaucrat alice("Alice", 1);
+	Bureaucrat john("John", 50);
+	Bureaucrat bob("Bob", 150);	
+	Intern intern;
+
+	// Test invalid Bureaucrat construction
+	std::cout << "-- Testing Invalid Bureaucrat Creation --\n";
 	try
 	{
-		Bureaucrat bob("Bob", 130); // Can sign, but cannot execute Shrubbery (exec grade 137)
-		ShrubberyCreationForm form("Garden");
-
-		std::cout << "\nForm before signing:\n"
-				  << form << std::endl;
-
-		bob.signForm(form);
-		std::cout << "\nForm after signing:\n"
-				  << form << std::endl;
-
-		bob.executeForm(form); // Should fail due to low grade
-
-		bob.incrementGrade(); // Now grade = 129 (good enough to execute)
-
-		bob.executeForm(form); // Should succeed now
+		Bureaucrat no_use("no_use", 151);
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
-		std::cerr << "Caught exception: " << e.what() << std::endl;
+		std::cerr << "Error: " << e.what() << "\n";
 	}
+
+	// Test Intern form creation
+	std::cout << "\n-- Testing Intern Form Creation --\n";
+	AForm *shrub = intern.makeForm("shrubbery creation", "garden");
+	AForm *robo = intern.makeForm("robotomy request", "Marvin");
+	AForm *pardon = intern.makeForm("presidential pardon", "Ford");
+	AForm *no_use = intern.makeForm("no_use form", "nowhere");
+
+	// Print initial form states
+	std::cout << "\n-- Initial Form States --\n";
+	if (shrub)
+		std::cout << *shrub << "\n";
+	if (robo)
+		std::cout << *robo << "\n";
+	if (pardon)
+		std::cout << *pardon << "\n";
+
+	// Signing phase
+	std::cout << "\n-- Signing Phase --\n";
+	if (shrub)
+	{
+		bob.signForm(*shrub);
+		john.signForm(*shrub);
+	}
+	if (robo)
+	{
+		john.signForm(*robo);
+	}
+	if (pardon)
+	{
+		john.signForm(*pardon);
+		alice.signForm(*pardon);
+	}
+
+	// Execution phase
+	std::cout << "\n-- Execution Phase --\n";
+	if (shrub)
+	{
+		bob.executeForm(*shrub);
+		john.executeForm(*shrub);
+	}
+	if (robo)
+	{
+		john.executeForm(*robo);
+		alice.executeForm(*robo);
+	}
+	if (pardon)
+	{
+		alice.executeForm(*pardon);
+	}
+
+	// Test already signed form
+	std::cout << "\n-- Test Already Signed --\n";
+	if (shrub)
+	{
+		john.signForm(*shrub);
+	}
+
+	// Test grade increment/decrement
+	std::cout << "\n-- Test Grade Changes --\n";
+	try
+	{
+		alice.incrementGrade();
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Error: " << e.what() << "\n";
+	}
+	try
+	{
+		bob.decreamentGrade();
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Error: " << e.what() << "\n";
+	}
+
+	// Clean up dynamically allocated forms
+	delete shrub;
+	delete robo;
+	delete pardon;
+	delete no_use;
 
 	return 0;
 }

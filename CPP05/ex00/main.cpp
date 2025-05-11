@@ -10,9 +10,12 @@ int main()
 		allo.IncrementGrade();
 		allo.IncrementGrade();
 		std::cout << allo;
-		// allo.IncrementGrade();
+		allo.IncrementGrade();
+		allo.IncrementGrade();
+		allo.IncrementGrade();
+
 	}
-	catch (const std::exception &e)
+	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}

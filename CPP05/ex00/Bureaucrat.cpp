@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : _grade(150), _name("")
 {
 }
 
-Bureaucrat::~Bureaucrat()
-{
+Bureaucrat::~Bureaucrat(){
+	std::cout << "destructor is called\n";
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
@@ -17,9 +17,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	std::cout << "constructor was called\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
-	*this = other;
 	std::cout << "copy constructor was called\n";
 }
 
@@ -56,18 +55,18 @@ std::string Bureaucrat::getName() const
 
 void Bureaucrat::IncrementGrade()
 {
-	_grade--;
-	std::cout << "increamenting Grade by 1\n";
-	if (_grade < 1)
+	if (_grade <= 1)
 		throw GradeTooHighException();
+	_grade--;
+	std::cout << "incrementing Grade by 1 ,so _grade = " << _grade << "\n";
 }
 
 void Bureaucrat::DecrementGrade()
 {
-	_grade++;
-	std::cout << "deacreamenting Grade by 1\n";
-	if (_grade > 150)
+	if (_grade >= 150)
 		throw GradeTooLowException();
+	_grade++;
+	std::cout << "deacreamenting Grade by 1 ,so _grade = " << _grade << "\n";
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)

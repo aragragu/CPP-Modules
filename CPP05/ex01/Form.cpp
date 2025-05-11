@@ -75,9 +75,8 @@ std::ostream &operator<<(std::ostream &out, const Form &form)
 	return out;
 }
 
-void Form::beSigned(Bureaucrat bureaucrat)
+void Form::beSigned(Bureaucrat& bureaucrat)
 {
-	// i need to add  another throw in case the form is already signed
 	if (this->getSign())
 		throw FormAlreadySigned();
 	if (this->_signGrade >= bureaucrat.getGrade())

@@ -1,0 +1,1 @@
+why do we use a reference to const in the catch : because it's a good practise also it avoids object sliding wich could happen when you catch exception by value

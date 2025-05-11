@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm()
+RobotomyRequestForm::RobotomyRequestForm() : AForm(), _target("")
 {
 }
 
@@ -10,12 +10,11 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-	// if (this->getsignGrade() != 145 || this->getexecuteGrade() != 137)
-	// 	throw "";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), _target(other._target)
 {
+	// *this = other;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
@@ -23,19 +22,19 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	if (this != &other)
 	{
 		AForm::operator=(other);
+		this->_target = other._target;
 	}
 	return *this;
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat &exec) const
 {
-	static int i;
 	if (!this->getSign())
 		throw FormIsNotSigned();
 	if (this->getexecuteGrade() < exec.getGrade())
 		throw FormCannotBeExecuted();
 	std::cout << "* bzzzz... vrrrr... *\n";
-	if ((i % 2) == 0)
+	if ((std::rand() % 2) == 0)
 		std::cout << _target << " has been robotomized successfully\n";
 	else
 		std::cout << "The robotomy of " << _target << " failed\n";

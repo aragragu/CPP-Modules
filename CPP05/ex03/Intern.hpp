@@ -14,7 +14,7 @@ class Intern
 	private:
 		std::string arr[3];
 	public:
-		Intern(/* args */);
+		Intern();
 		~Intern();
 
 

@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : _name(""), _grade(150)
 {
 }
 
@@ -17,9 +17,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	std::cout << "constructor was called\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
-	*this = other;
+	// *this = other;
 	std::cout << "copy constructor was called\n";
 }
 
@@ -56,18 +56,18 @@ std::string Bureaucrat::getName() const
 
 void Bureaucrat::incrementGrade()
 {
-	_grade--;
-	std::cout << "increamenting Grade by 1\n";
-	if (_grade < 1)
+	if (_grade <= 1)
 		throw GradeTooHighException();
+	_grade--;
+	std::cout << "incrementing Grade by 1 ,so _grade = " << _grade << "\n";
 }
 
 void Bureaucrat::decreamentGrade()
 {
-	_grade++;
-	std::cout << "deacreamenting Grade by 1\n";
-	if (_grade > 150)
+	if (_grade >= 150)
 		throw GradeTooLowException();
+	_grade++;
+	std::cout << "deacreamenting Grade by 1 ,so _grade = " << _grade << "\n";
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
@@ -97,7 +97,7 @@ void Bureaucrat::executeForm(const AForm& form) const{
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+		std::cerr << _name << " couldn't execute " << form.getName() << " because : " << e.what() << std::endl;
 	}
 
 }
