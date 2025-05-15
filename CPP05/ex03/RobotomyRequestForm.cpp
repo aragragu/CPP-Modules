@@ -33,6 +33,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &exec) const
 		throw FormIsNotSigned();
 	if (this->getexecuteGrade() < exec.getGrade())
 		throw FormCannotBeExecuted();
+	std::srand(static_cast<unsigned>(std::time(NULL)));
 	std::cout << "* bzzzz... vrrrr... *\n";
 	if ((std::rand() % 2) == 0)
 		std::cout << _target << " has been robotomized successfully\n";

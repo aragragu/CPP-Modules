@@ -10,6 +10,19 @@ Intern::~Intern()
 {
 }
 
+Intern::Intern(const Intern& other){
+	*this = other;
+}
+
+Intern& Intern::operator=(const Intern& other){
+	if (this != &other)
+	{
+		for (int i = 0; i < 3; ++i)
+			this->arr[i] = other.arr[i];
+	}
+	return *this;
+}
+
 AForm* Intern::makeForm(std::string form_Name, std::string targetName){
 	AForm* (Intern::*form_maker[3])(std::string) = {&Intern::makePresident, &Intern::makeRobotomy, &Intern::makeShrubbery};
 

@@ -17,7 +17,8 @@ $(NAME) : $(OBJ)
 %.o : %.cpp
 		$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ) : AForm.hpp Bureaucrat.hpp Makefile PresidentialPardonForm.hpp RobotomyRequestForm.hpp 	ShrubberyCreationForm.hpp Intern.hpp
+$(OBJ) : AForm.hpp Bureaucrat.hpp Makefile PresidentialPardonForm.hpp RobotomyRequestForm.hpp \
+		ShrubberyCreationForm.hpp Intern.hpp
 
 clean:
 	$(RM) $(OBJ)

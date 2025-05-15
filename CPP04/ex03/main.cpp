@@ -36,7 +36,6 @@ int main()
 	alice->use(0, *bob); // Uses Ice on Bob
 	alice->use(1, *bob); // Uses Cure on Bob
 
-	
 	alice->unequip(0);
 	alice->unequip(1);
 
@@ -48,4 +47,3 @@ int main()
 	delete allo2;
 	return 0;
 }
-

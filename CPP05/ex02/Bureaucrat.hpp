@@ -19,25 +19,25 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &other);
 		Bureaucrat &operator=(const Bureaucrat &other);
 		~Bureaucrat();
-	
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
-			virtual const char *what() const throw();
+				virtual const char *what() const throw();
 		};
-	
+
 		class GradeTooLowException : public std::exception
 		{
 			public:
-			virtual const char *what() const throw();
+				virtual const char *what() const throw();
 		};
-	
+
 		std::string getName() const;
 		int getGrade() const;
-	
+
 		void incrementGrade();
 		void decreamentGrade();
-	
+
 		void signForm(AForm &form);
 		void executeForm(const AForm& form) const;
 };

@@ -37,14 +37,18 @@ void ShrubberyCreationForm::execute(const Bureaucrat &exec) const
 	std::ofstream out_file(name.c_str());
 	if (out_file.is_open())
 	{
-		out_file << "       /\\\n";
-		out_file << "      /**\\\n";
-		out_file << "     /****\\\n";
-		out_file << "    /******\\\n";
-		out_file << "   /********\\\n";
-		out_file << "  /**********\\\n";
-		out_file << "       ||\n";
-		out_file << "       ||\n";
+		out_file << "       v .   ._, |_  .,\n";
+		out_file << "    `-._\\/  .  \\ /    |/_\n";
+		out_file << "        \\\\  _\\, y | \\//\n";
+		out_file << "  _\\_.___\\\\, \\\\/ -.\\||\n";
+		out_file << "    `7-,--.`._||  / / ,\n";
+		out_file << "    /'     `-. `./ / |/_.'\n";
+		out_file << "              |    |//\n";
+		out_file << "              |_    /\n";
+		out_file << "              |-   |\n";
+		out_file << "              |   =|\n";
+		out_file << "              |    |\n";
+		out_file << "-----------/ ,  . \\--------._\n";
 		out_file.close();
 	}
 	else

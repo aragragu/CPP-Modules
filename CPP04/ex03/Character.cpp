@@ -58,7 +58,8 @@ void Character::equip(AMateria* m)
 }
 
 
-void Character::unequip(int idx)
+void Character::
+unequip(int idx)
 {
 	if (idx < 0 || index == 0 || idx >= index)
 		return;

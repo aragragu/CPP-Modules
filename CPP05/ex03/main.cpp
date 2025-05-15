@@ -6,14 +6,10 @@
 
 int main()
 {
-
-	// Create bureaucrats
 	Bureaucrat alice("Alice", 1);
 	Bureaucrat john("John", 50);
-	Bureaucrat bob("Bob", 150);	
+	Bureaucrat bob("Bob", 150);
 	Intern intern;
-
-	// Test invalid Bureaucrat construction
 	std::cout << "-- Testing Invalid Bureaucrat Creation --\n";
 	try
 	{
@@ -23,15 +19,11 @@ int main()
 	{
 		std::cerr << "Error: " << e.what() << "\n";
 	}
-
-	// Test Intern form creation
 	std::cout << "\n-- Testing Intern Form Creation --\n";
 	AForm *shrub = intern.makeForm("shrubbery creation", "garden");
 	AForm *robo = intern.makeForm("robotomy request", "Marvin");
 	AForm *pardon = intern.makeForm("presidential pardon", "Ford");
 	AForm *no_use = intern.makeForm("no_use form", "nowhere");
-
-	// Print initial form states
 	std::cout << "\n-- Initial Form States --\n";
 	if (shrub)
 		std::cout << *shrub << "\n";
@@ -39,8 +31,6 @@ int main()
 		std::cout << *robo << "\n";
 	if (pardon)
 		std::cout << *pardon << "\n";
-
-	// Signing phase
 	std::cout << "\n-- Signing Phase --\n";
 	if (shrub)
 	{
@@ -56,8 +46,6 @@ int main()
 		john.signForm(*pardon);
 		alice.signForm(*pardon);
 	}
-
-	// Execution phase
 	std::cout << "\n-- Execution Phase --\n";
 	if (shrub)
 	{
@@ -73,15 +61,11 @@ int main()
 	{
 		alice.executeForm(*pardon);
 	}
-
-	// Test already signed form
 	std::cout << "\n-- Test Already Signed --\n";
 	if (shrub)
 	{
 		john.signForm(*shrub);
 	}
-
-	// Test grade increment/decrement
 	std::cout << "\n-- Test Grade Changes --\n";
 	try
 	{
@@ -99,8 +83,6 @@ int main()
 	{
 		std::cerr << "Error: " << e.what() << "\n";
 	}
-
-	// Clean up dynamically allocated forms
 	delete shrub;
 	delete robo;
 	delete pardon;

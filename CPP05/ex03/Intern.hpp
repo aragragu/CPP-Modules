@@ -7,7 +7,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include <vector>
+
 
 class Intern
 {
@@ -16,6 +16,8 @@ class Intern
 	public:
 		Intern();
 		~Intern();
+		Intern(const Intern& other);
+		Intern& operator=(const Intern& other);
 
 
 		AForm* makeForm(std::string formName, std::string targetName);

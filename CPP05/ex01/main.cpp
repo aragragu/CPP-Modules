@@ -10,7 +10,7 @@ int main()
 		Bureaucrat alice("Alice", 1);
 		Bureaucrat frank("frank", 25);
 
-		Form taxForm("TaxForm", 25, 10); // Requires grade 25 to sign
+		Form taxForm("TaxForm", 49, 10); // Requires grade 25 to sign
 
 		std::cout << john << std::endl;
 		std::cout << alice << std::endl;

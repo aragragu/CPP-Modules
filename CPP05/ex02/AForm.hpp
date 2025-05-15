@@ -1,4 +1,4 @@
-#ifndef AFORM_HPP
+	#ifndef AFORM_HPP
 #define AFORM_HPP
 
 #include <iostream>
@@ -24,37 +24,37 @@ class AForm
 
 		class GradeTooHighException : public std::exception
 		{
-		public:
-			virtual const char *what() const throw();
+			public:
+				virtual const char *what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
-		public:
-			virtual const char *what() const throw();
+			public:
+				virtual const char *what() const throw();
 		};
 
 		class FormIsNotSigned : public std::exception
 		{
-		public:
-			virtual const char *what() const throw();
+			public:
+				virtual const char *what() const throw();
 		};
 
 		class FormCannotBeExecuted : public std::exception
 		{
-		public:
-			virtual const char *what() const throw();
+			public:
+				virtual const char *what() const throw();
 		};
 
 		class FormAlreadySigned : public std::exception
 		{
-		public:
-			virtual const char *what() const throw();
+			public:
+				virtual const char *what() const throw();
 		};
 		class CouldNotOpenTheFile : public std::exception
 		{
-		public:
-			virtual const char *what() const throw();
+			public:
+				virtual const char *what() const throw();
 		};
 
 		std::string getName() const;

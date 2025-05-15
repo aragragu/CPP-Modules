@@ -92,12 +92,10 @@ std::ostream &operator<<(std::ostream &out, const AForm &Aform)
 
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
-	// i need to add  another throw in case the form is already signed
 	if (this->getSign())
 		throw FormAlreadySigned();
 	if (this->_signGrade >= bureaucrat.getGrade())
 		this->_signed = true;
 	else
 		throw GradeTooLowException();
-	// throw "the grade is not right";
 }
