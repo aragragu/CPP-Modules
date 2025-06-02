@@ -1,0 +1,12 @@
+TEMPLATES
+
+
+before we talk about templates when to address something called GENERIC in c++;
+so what is GENERIC in c++ : GENERIC is the idea of workin with different data types as paramters for a function or a class or an interface, so the method of GENERIC programming in implemented to increase the efficiency of the code , also it allows the programmer to to write an algorithm that will work with all data types, and it's advantages are :
+														- code reusability.
+														- avoid function Overloading.
+														- once written it can be used for multiple times and cases.
+
+GENERIC can be implemented in c++ using Templates .
+so what are templates :
+the main idea about templates is that it allows use work with a function or class that can use different tye of data type so that we won't need to duplicate the code over and over

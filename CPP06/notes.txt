@@ -1,0 +1,11 @@
+diffrent types of casting:
+
+- Implicite Conversion (int value = 1; float allo = value;)
+- Explicit Convesion : C-style(double value = 3.14; int allo = (int)value;) ||
+									Functional Casting(double value = 3.14; int allo = int(value);)
+- Static Cast : (double value = 3.14; int allo = static_cast<int>(value);)
+- Dynamic Cast : ()
+
+
+
+9123456789

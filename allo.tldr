@@ -24,12 +24,12 @@
 			"com.tldraw.shape.note": 9,
 			"com.tldraw.shape.line": 5,
 			"com.tldraw.shape.frame": 1,
-			"com.tldraw.shape.arrow": 5,
+			"com.tldraw.shape.arrow": 6,
 			"com.tldraw.shape.highlight": 1,
 			"com.tldraw.shape.embed": 4,
 			"com.tldraw.shape.image": 5,
 			"com.tldraw.shape.video": 3,
-			"com.tldraw.binding.arrow": 0
+			"com.tldraw.binding.arrow": 1
 		}
 	},
 	"records": [
@@ -151,9 +151,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": -2496.2403071593726,
-			"y": 5748.62697834191,
-			"lastActivityTimestamp": 1746548471253,
+			"x": -2477.246281398804,
+			"y": -1196.8856360033542,
+			"lastActivityTimestamp": 0,
 			"meta": {}
 		},
 		{
@@ -2497,9 +2497,9 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 2511.38079468546,
-			"y": -5126.490581815419,
-			"z": 0.7265287845617201,
+			"x": 2477.246281398804,
+			"y": 1196.8856360033542,
+			"z": 0.13651294857890597,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -5195,10 +5195,10 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": "shape:T5CTnJrL8ryJFQZPeZshk",
+			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:T5CTnJrL8ryJFQZPeZshk"
+				"shape:QmfWGhpk1PVxpx01oKngP"
 			],
 			"hoveredShapeId": null,
 			"erasingShapeIds": [],
@@ -6621,6 +6621,39 @@
 			},
 			"parentId": "page:page",
 			"index": "b0D3PQ",
+			"typeName": "shape"
+		},
+		{
+			"x": -306.2217780535674,
+			"y": 7005.379270618204,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:QmfWGhpk1PVxpx01oKngP",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 16,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "b0uBDK",
 			"typeName": "shape"
 		},
 		{
@@ -12034,8 +12067,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 851,
-				"h": 1102
+				"w": 691,
+				"h": 1302
 			},
 			"insets": [
 				false,
@@ -12052,7 +12085,7 @@
 			"isFocused": true,
 			"devicePixelRatio": 1,
 			"isCoarsePointer": false,
-			"isHoveringCanvas": false,
+			"isHoveringCanvas": null,
 			"openMenus": [],
 			"isChangingStyle": false,
 			"isReadonly": false,

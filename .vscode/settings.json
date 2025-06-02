@@ -51,6 +51,13 @@
 		"iomanip": "cpp",
 		"ranges": "cpp",
 		"span": "cpp",
-		"sstream": "cpp"
+		"sstream": "cpp",
+		"charconv": "cpp",
+		"chrono": "cpp",
+		"ratio": "cpp",
+		"format": "cpp",
+		"text_encoding": "cpp",
+		"cinttypes": "cpp",
+		"variant": "cpp"
 	}
 }
