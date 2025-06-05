@@ -4,22 +4,22 @@
 
 #include <iostream>
 
-template <typename T>
-void swap(T &i, T &g)
+template <typename X>
+void swap(X &i, X &g)
 {
-	T x = i;
+	X x = i;
 	i = g;
 	g = x;
 }
 
-template <typename T>
-T min(T i, T g)
+template <typename X>
+X min(X i, X g)
 {
 	return (i > g) ? g : i;
 }
 
-template <typename T>
-T max(T i, T g)
+template <typename X>
+X max(X i, X g)
 {
 	return (i > g) ? i : g;
 }

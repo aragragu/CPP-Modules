@@ -5,19 +5,19 @@
 #include <stdexcept>
 
 
-template <typename T>
+template <typename X>
 class Array
 {
 	private:
-	T* array;
+	X* array;
 	int size;
 	public:
 	Array();
 	Array(unsigned int m);
 	Array(const Array& other);
 	Array& operator=(const Array& other);
-	T &operator[](unsigned int index);
-	const T &operator[](unsigned int index) const;
+	X &operator[](unsigned int index);
+	const X &operator[](unsigned int index) const;
 	~Array();
 };
 
