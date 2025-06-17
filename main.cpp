@@ -1,71 +1,41 @@
+#include <vector>
+#include <list>
 #include <iostream>
-#include <string>
-
-
-class Animal
-{
-protected:
-	int i;
-public:
-	int getInt()
-	{
-		return i;
-	}
-	virtual void makeSound() const; // Pure virtual functio
-	virtual ~Animal() {}
-};
-
-class Dog : public Animal
-{
-public:
-	void makeSound() const
-	{
-		std::cout << "Woof!" << std::endl;
-	}
-};
-
-class Cat : public Animal
-{
-public:
-	void makeSound() const
-	{
-		std::cout << "Meow!" << std::endl;
-	}
-};
-
-void animalSound(const Animal &animal)
-{
-	animal.makeSound();
-}
+#include <string> // For std::string
 
 int main()
 {
-	// allo->makeSound();
-	// animalSound(dog); // Outputs: Woof!
-	// animalSound(cat); // Outputs: Meow!
-	// delete allo;
+	// Using std::vector
+	std::vector<int> numbers_vec;
+	numbers_vec.push_back(10);
+	numbers_vec.push_back(20);
+	numbers_vec.push_back(30);
 
+	// Declaring an iterator for std::vector<int>
+	std::vector<int>::iterator vec_it;
 
-	std::string allo[4];
-	allo[0] = "0000000";
-	allo[1] = "1111111";
-	allo[2] = "2222222";
-	allo[3] = "3333333";
-
-	int index = 4;
-	int idx = 1;
-
-	if (idx < 0 || index == 0 || idx >= index)
-		return 0;
-	allo[idx] = "empty";
-	for (int i = idx; i < 3; i++)
+	std::cout << "Vector elements (using iterator):" << std::endl;
+	for (vec_it = numbers_vec.begin(); vec_it != numbers_vec.end(); ++vec_it)
 	{
-		allo[i] = allo[i + 1];
+		std::cout << *vec_it << " "; // Dereference the iterator to get the value
 	}
+	std::cout << std::endl;
 
-	allo[3] = "";
-	for (size_t x = 0; x < 4; x++)
-		std::cout << "allo[" << x << "] = <<" << allo[x] << ">>" << std::endl;
+	// Using std::list
+	std::list<std::string> names_list;
+	names_list.push_back("Alice");
+	names_list.push_back("Bob");
+	names_list.push_back("Charlie");
+
+	// Declaring an iterator for std::list<std::string>
+	std::list<std::string>::iterator list_it;
+
+	std::cout << "List elements (using iterator):" << std::endl;
+	for (list_it = names_list.begin(); list_it != names_list.end(); ++list_it)
+	{
+		std::cout << *list_it << " "; // Dereference the iterator
+	}
+	std::cout << std::endl;
 
 	return 0;
 }

@@ -1,0 +1,18 @@
+A CONATIANER is a holder object that stores a collection of object (it's elements), they are emplimented as class templates, which allows great flexibility in the types supported as elements
+
+the containers manages the storage space for it's elements and provides member functions to access them, either directly ot theought iterators(reference objects with similar properties to pointers)
+
+
+conatiners type in c++ :
+sequence conatiners: array, vector, deque,list, forward list
+associatice containers : map, set, multimap, multiset
+unordered conatiners : unordered map, unordered set, unordered multimap, unordered multiset
+
+
+
+SEQUENCE CONATINERS:
+ARRAY: fixed size sequence conatianers, they holde a specific number of elements ordered in a strict linear sequence and it can be accessed like an array using the index of the position we want to access, also the it's element are stored in a contiguous memory location, it's uses it's consturctors and destructors to allocate the requierd space statically, it's size is compile-time constant
+VECTOR: vectors are a sequence array that can change it's size, cause it's storage is bieng handle automatically by the the container, which means that vector stores it's elements in a dynamically allocated array, nut to avoid performance cost of reallocating and moving all elements every time a new element is added , vectors often allocate more memory than what's needed, resulting to capacity larger than what's needed, also vector are effecient accessing it's elements (like arrays) nd relatively effecient adding or removing elements from it's end, but for operations that involve inserting or removing elements at positions other than the end, they perform worse than the other sequence conatianers
+DEQUE: are a sequence array that works like arrays and vector but underneath is does not work like them , cause it does not allocate memory for its element in a contiguous memory location but rather a scattered elements in different chunck of storage, with the conatianer keeping the necessary information internally to provide direct access to any of it's elements , for operation that involves frequent insertion or removals of elements at positions other than the beginning ot the end , deque perform worse and have less consistent iterators and reference that lists and forward lists
+FORWARD_LIST: is a singly-linked list like in C so each element of the linked-list can be stored in a different and unrelated storage location and it was designed to allow constant time insert and erase operation anywhere within the sequence, it can only go forward unlike lists cause in each node it has the information about the next elements also it is effecient in size , it even does not have a size memeber function, also it smaller and more efficient.
+LIST: is sequnece conatiner that allows constant time insert and erase anywhere within the sequence , and iteration in both directions, it's emplemented as a doubly linked-list
