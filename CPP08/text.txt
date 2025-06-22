@@ -16,3 +16,8 @@ VECTOR: vectors are a sequence array that can change it's size, cause it's stora
 DEQUE: are a sequence array that works like arrays and vector but underneath is does not work like them , cause it does not allocate memory for its element in a contiguous memory location but rather a scattered elements in different chunck of storage, with the conatianer keeping the necessary information internally to provide direct access to any of it's elements , for operation that involves frequent insertion or removals of elements at positions other than the beginning ot the end , deque perform worse and have less consistent iterators and reference that lists and forward lists
 FORWARD_LIST: is a singly-linked list like in C so each element of the linked-list can be stored in a different and unrelated storage location and it was designed to allow constant time insert and erase operation anywhere within the sequence, it can only go forward unlike lists cause in each node it has the information about the next elements also it is effecient in size , it even does not have a size memeber function, also it smaller and more efficient.
 LIST: is sequnece conatiner that allows constant time insert and erase anywhere within the sequence , and iteration in both directions, it's emplemented as a doubly linked-list
+
+
+
+why does the compilier does not know if "std::stack<AnyType>::container_type::iterator" is a type unless i anticipated it with type name
+

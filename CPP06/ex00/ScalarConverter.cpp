@@ -11,7 +11,6 @@ ScalarConverter::~ScalarConverter(void) {}
 ScalarConverter& ScalarConverter::operator = (ScalarConverter const &other)
 {
 	(void)other;
-	return (*this);
 }
 
 bool IsA_Char(const std::string& input){

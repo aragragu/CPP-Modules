@@ -1,9 +1,9 @@
-NAME = Span
+NAME = btc
 CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
-SRC = main.cpp Span.cpp
+SRC = main.cpp BitcoinExchange.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all : $(NAME)
@@ -14,7 +14,7 @@ $(NAME) : $(OBJ)
 %.o : %.cpp
 		$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ) : Span.hpp
+$(OBJ) : BitcoinExchange.hpp
 
 clean:
 	$(RM) $(OBJ)

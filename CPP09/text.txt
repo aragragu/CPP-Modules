@@ -1,0 +1,6 @@
+ex00:
+create a program that outputs the value of certain amount of bitcoin on a certain day
+the program must use a database in csv format wich will represent bitcoin price over time
+the program will take as input a second database containing the different prices/dates to evaluate
+
+
