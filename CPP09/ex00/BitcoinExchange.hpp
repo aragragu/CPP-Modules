@@ -3,10 +3,12 @@
 
 #include <map>
 #include <string>
+#include <sstream>
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <list>
 
 class BitcoinExchange
 {
@@ -28,8 +30,8 @@ public:
 	Data_and_Prices(std::string filename);
 	~Data_and_Prices(); // close file
 	void ParseData();
-	bool ValidLine(std::string &line, std::string to_look, int i);
-	bool validNumbers(int year, int month, int day, float quantity);
+	void ValidLine(std::string &line, std::string to_look, int i);
+	void validNumbers(int year, int month, int day, float quantity, int i);
 	void print_price(std::string &line);
 };
 

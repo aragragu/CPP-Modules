@@ -13,9 +13,7 @@ int main(int argc, char* argv[]){
 			std::string filename = argv[1];
 			Data_and_Prices allo(filename);
 			allo.ParseData();
-
 		}
-
 	}
 	catch(const std::exception& e)
 	{

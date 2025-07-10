@@ -23,32 +23,6 @@ Data_and_Prices::~Data_and_Prices()
 {
 }
 
-void Data_and_Prices::ParseData()
-{
-	if (filename.substr(filename.length() - 4) != ".txt")
-		throw std::invalid_argument("invalid file extention (valid file extention -> .txt)");
-	std::ifstream data_base_file("data.csv");
-	if (!data_base_file.is_open())
-		throw std::runtime_error("Error opening file : data.csv");
-	std::string holder;
-	while (std::getline(data_base_file, holder)){
-		ValidLine(holder, ",", 1);
-	}
-	std::ifstream in_file(filename.c_str());
-	if (!in_file.is_open())
-		throw std::runtime_error("Error opening file: " + filename);
-	std::string line;
-	while (std::getline(in_file, line))
-	{
-		if (line == "date | value")
-			continue;
-		if (ValidLine(line, "|", 0))
-			print_price(line);
-		else
-			std::cout << "Error: line is not valid\n";
-	}
-}
-
 void trim(std::string &line)
 {
 	size_t start, end;
@@ -61,6 +35,55 @@ void trim(std::string &line)
 	end = line.find_last_not_of(" \t");
 	line = line.substr(start, end - start + 1);
 }
+
+void Data_and_Prices::ParseData()
+{
+	if (filename.substr(filename.length() - 4) != ".txt")
+		throw std::invalid_argument("invalid file extention (valid file extention -> .txt)");
+	std::ifstream data_base_file("data.csv");
+	if (!data_base_file.is_open())
+		throw std::runtime_error("Error opening file : data.csv");
+	std::string holder;
+	int i = 1;
+	while (std::getline(data_base_file, holder)){
+		try{
+			if (i == 1){
+				i++;
+				continue;
+			}
+			std::istringstream input(holder);
+			ValidLine(holder, ",", 1);
+		}
+		catch(const std::exception& e){
+			std::cerr << e.what() << '\n';
+		}
+		i++;
+	}
+	data_base_file.close();
+	std::ifstream in_file(filename.c_str());
+	if (!in_file.is_open())
+		throw std::runtime_error("Error opening file: " + filename);
+	std::string line;
+	i = 1;
+	while (std::getline(in_file, line)){
+		try{
+			if (i == 1){
+				i++;
+				continue;
+			}
+			if (line.empty())
+				continue;
+			ValidLine(line, "|", 0);
+			print_price(line);
+		}
+		catch(const std::exception& e){
+			std::cerr << e.what() << '\n';
+		}
+		i++;
+	}
+	in_file.close();
+}
+
 
 bool is_num(std::string &line)
 {
@@ -75,39 +98,60 @@ bool is_num(std::string &line)
 	return true;
 }
 
-bool Data_and_Prices::ValidLine(std::string &line, std::string to_look, int i)
+bool parse_date(std::string &date)
+{
+	if (date.size() != 10)
+		return false;
+	for (int i = 0; i < 10; ++i){
+		if (i == 4 || i == 7){
+			if (date[i] != '-')
+				return false;
+		}
+		else{
+			if (!std::isdigit(date[i]))
+				return false;
+		}
+	}
+	return true;
+}
+
+void Data_and_Prices::ValidLine(std::string &line, std::string to_look, int i)
 {
 	std::string date, amount;
 	int year, month, day;
 	float quantity;
 	if (line.find(to_look) == std::string::npos)
-		return false;
+		throw std::invalid_argument("Error: invalid line format");
 	date = line.substr(0, line.find(to_look));
 	amount = line.substr(line.find(to_look) + 1);
 	trim(date);
 	trim(amount);
 	if (date.empty() || date.size() < 10 || amount.empty())
-		return false;
+		throw std::invalid_argument("Error: invalid line format");
+	if (!parse_date(date))
+		throw std::invalid_argument("Eror: invalid date format");
 	year = std::atoi(date.substr(0, 4).c_str());
 	month = std::atoi(date.substr(5, 2).c_str());
 	day = std::atoi(date.substr(8, 2).c_str());
 	if (!is_num(amount))
-		return false;
+		throw std::invalid_argument("Error: quantity is not a number");
 	quantity = std::strtof(amount.c_str(), NULL);
-	if (!validNumbers(year, month, day, quantity))
-		return false;
+	if (!i)
+		validNumbers(year, month, day, quantity, i);
 	if (i)
 		data[date] = quantity;
-	return true;
+	return;
 }
 
-bool Data_and_Prices::validNumbers(int year, int month, int day, float quantity)
+void Data_and_Prices::validNumbers(int year, int month, int day, float quantity, int i)
 {
 	int maxDays = 0;
-	if ((year < 2009 || year > 2026) || (month < 1 || month > 12) || (day < 1 || day > 31))
-		return false;
-	if (quantity < 0 || quantity > 1000.0)
-		return false;
+	if ((year < 2009 || year > 2025) || (month < 1 || month > 12) || (day < 1 || day > 31))
+		throw std::invalid_argument("Error: invalid date");
+	if (i == 0 && (quantity < 0.0f || quantity > 1000.0f))
+		throw std::invalid_argument("Error: invalid quantity (must be between 0 and 1000)");
+	if (i == 1 && (quantity <= 0.0f || quantity > 150000.0f))
+		throw std::invalid_argument("Error: invalid price (must be between 0 and 150000)");
 	switch (month)
 	{
 	case 2:
@@ -125,7 +169,8 @@ bool Data_and_Prices::validNumbers(int year, int month, int day, float quantity)
 		maxDays = 31;
 		break;
 	}
-	return (day <= maxDays);
+	if (!(day <= maxDays))
+		throw std::invalid_argument("Error: invalid day");
 }
 
 void Data_and_Prices::print_price(std::string &line)
@@ -145,10 +190,7 @@ void Data_and_Prices::print_price(std::string &line)
 	{
 		it = data.upper_bound(date);
 		if (it == data.begin())
-		{
-			std::cerr << "Error: no data available before this date\n";
-			return;
-		}
+			throw std::invalid_argument("Error: no data available before this date");
 		it--;
 		price = quantity * it->second;
 	}

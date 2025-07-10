@@ -1,22 +1,23 @@
-#include "main.hpp"
-
+// #include "main.hpp"
+#include <iostream>
+#include <vector>
 
 int main()
 {
-
-	MyLimitedVector<int> allo;
-
-	allo.push_back(1);
-	allo.push_back(2);
-	allo.push_back(3);
-	allo.push_back(4);
-	allo.push_back(5);
-	allo.push_back(6);
-	allo.push_back(7);
-	MyLimitedVector<int>::My_Iterator it = allo.begin();
-	for ( ; it != allo.end(); ++it)
+	int i = 100;
+	std::vector<int> jacob;
+	int a = 1, b = 1;
+	while (b <= i)
 	{
-		std::cout << *it << " ";
+		jacob.push_back(b);
+		int next = b + 2 * a;
+		a = b;
+		b = next;
+	}
+
+	for (size_t i = 0; i < jacob.size(); i++)
+	{
+		std::cout << jacob[i] << " ";
 	}
 	std::cout << "\n";
 
