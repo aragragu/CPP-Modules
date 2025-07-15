@@ -16,6 +16,8 @@ RPN const	&RPN::operator = (RPN const &rhs)
 }
 
 long RPN::devide(long long a, long long b){
+	if (b == 0)
+		throw std::runtime_error("Cannot Divide by zero");
 	return a / b;
 }
 

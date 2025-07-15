@@ -19,7 +19,9 @@ class PmergeMe
 	public :
 		~PmergeMe(void);
 
-		static void validnumber(std::string number, std::vector<int> &Vholder, std::deque<int> &Qholder);
+		static void validnumber(std::string number);
+		static void InsertToV(std::string number, std::vector<int>& list);
+		static void InsertToQ(std::string number, std::deque<int>& list);
 		static std::vector<int> sortVector(std::vector<int>& list);
 		static std::deque<int> sortDeque(std::deque<int>& list);
 		static void V_separateHolder(std::vector<int> &holder, std::vector<int> &main, std::vector<int> &pend);
@@ -29,5 +31,7 @@ class PmergeMe
 		static void printVector(std::vector<int> sorted_list);
 		static void printDeque(std::deque<int> sorted_list);
 };
+
+void trim(std::string &line);
 
 #endif

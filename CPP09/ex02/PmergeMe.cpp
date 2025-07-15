@@ -15,7 +15,20 @@ PmergeMe const	&PmergeMe::operator = (PmergeMe const &rhs)
 	return (*this);
 }
 
-void PmergeMe::validnumber(std::string number, std::vector<int> &Vholder, std::deque<int> &Qholder)
+void trim(std::string &line)
+{
+	size_t start, end;
+	start = line.find_first_not_of(" \t");
+	if (std::string::npos == start)
+	{
+		line = "";
+		return;
+	}
+	end = line.find_last_not_of(" \t");
+	line = line.substr(start, end - start + 1);
+}
+
+void PmergeMe::validnumber(std::string number)
 {
 	long num;
 	if (number.empty())
@@ -28,15 +41,29 @@ void PmergeMe::validnumber(std::string number, std::vector<int> &Vholder, std::d
 			throw std::invalid_argument("invlaid number");
 	}
 	num = std::strtol(number.c_str(), NULL, 10);
-	if (num < 1 ||  num > INT_MAX)
+	if (num < 0 ||  num > INT_MAX)
 		throw std::invalid_argument("invlaid number, reason: number is out of range");
-	if (std::find(Vholder.begin(), Vholder.end(), num) == Vholder.end()){
-		Vholder.push_back(static_cast<int>(num));
-		Qholder.push_back(static_cast<int>(num));
+}
+void PmergeMe::InsertToV(std::string number, std::vector<int>& list)
+{
+	long num = std::strtol(number.c_str(), NULL, 10);
+	if (std::find(list.begin(), list.end(), num) == list.end()){
+		list.push_back(static_cast<int>(num));
 	}
 	else
 		throw std::invalid_argument("duplicated numbers");
 }
+
+void PmergeMe::InsertToQ(std::string number, std::deque<int>& list)
+{
+	long num = std::strtol(number.c_str(), NULL, 10);
+	if (std::find(list.begin(), list.end(), num) == list.end()){
+		list.push_back(static_cast<int>(num));
+	}
+	else
+		throw std::invalid_argument("duplicated numbers");
+}
+
 
 void PmergeMe::V_separateHolder(std::vector<int>& holder, std::vector<int> &B_List, std::vector<int> &S_List){
 	size_t lenght = holder.size() % 2 == 0 ? holder.size() : holder.size() - 1;
@@ -112,7 +139,7 @@ void PmergeMe::V_insertSmallerInBiggerHalf(std::vector<int> &BiggerHalf, std::ve
 		size_t index = jackSequence[i] - 1;
 		if (index >= SmallerHalf.size())
 			break;
-		std::vector<int>::iterator InsetPosition = std::upper_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[index]);
+		std::vector<int>::iterator InsetPosition = std::lower_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[index]);
 		BiggerHalf.insert(InsetPosition, SmallerHalf[index]);
 		FilledIndex.push_back(index);
 	}
@@ -120,7 +147,7 @@ void PmergeMe::V_insertSmallerInBiggerHalf(std::vector<int> &BiggerHalf, std::ve
 	{
 		if (std::find(FilledIndex.begin(), FilledIndex.end(), i) == FilledIndex.end())
 		{
-			std::vector<int>::iterator InsetPosition = std::upper_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[i]);
+			std::vector<int>::iterator InsetPosition = std::lower_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[i]);
 			BiggerHalf.insert(InsetPosition, SmallerHalf[i]);
 		}
 	}
@@ -134,7 +161,7 @@ void PmergeMe::Q_insertSmallerInBiggerHalf(std::deque<int> &BiggerHalf, std::deq
 		size_t index = jackSequence[i] - 1;
 		if (index >= SmallerHalf.size())
 			break;
-		std::deque<int>::iterator InsetPosition = std::upper_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[index]);
+		std::deque<int>::iterator InsetPosition = std::lower_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[index]);
 		BiggerHalf.insert(InsetPosition, SmallerHalf[index]);
 		FilledIndex.push_back(index);
 	}
@@ -142,7 +169,7 @@ void PmergeMe::Q_insertSmallerInBiggerHalf(std::deque<int> &BiggerHalf, std::deq
 	{
 		if (std::find(FilledIndex.begin(), FilledIndex.end(), i) == FilledIndex.end())
 		{
-			std::deque<int>::iterator InsetPosition = std::upper_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[i]);
+			std::deque<int>::iterator InsetPosition = std::lower_bound(BiggerHalf.begin(), BiggerHalf.end(), SmallerHalf[i]);
 			BiggerHalf.insert(InsetPosition, SmallerHalf[i]);
 		}
 	}

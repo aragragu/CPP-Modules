@@ -30,7 +30,8 @@ public:
 	Data_and_Prices(std::string filename);
 	~Data_and_Prices(); // close file
 	void ParseData();
-	void ValidLine(std::string &line, std::string to_look, int i);
+	void ValidDBLine(std::string &line, std::string to_look);
+	void ValidLine(std::string &line, std::string to_look);
 	void validNumbers(int year, int month, int day, float quantity, int i);
 	void print_price(std::string &line);
 };

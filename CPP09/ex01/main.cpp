@@ -6,7 +6,7 @@ int main(int argc, char* argv[]){
 	try
 	{
 		if (argc != 2)
-			std::invalid_argument("invalid arguments, synthax (./RPN <number.......>");
+			throw std::invalid_argument("invalid arguments, synthax (./RPN <number.......>");
 		else
 		{
 			long holder;
@@ -21,8 +21,8 @@ int main(int argc, char* argv[]){
 					RPN::DoOperation(num, numbers);
 			}
 			if (numbers.size() != 1)
-				throw std::invalid_argument("allo");
-			std::cout << numbers.top();
+				throw std::invalid_argument("Error: stack does not have one number");
+			std::cout << numbers.top() << "\n";
 		}
 	}
 	catch(const std::exception& e)
