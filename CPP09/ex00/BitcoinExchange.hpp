@@ -32,7 +32,7 @@ public:
 	void ParseData();
 	void ValidDBLine(std::string &line, std::string to_look);
 	void ValidLine(std::string &line, std::string to_look);
-	void validNumbers(int year, int month, int day, float quantity, int i);
+	bool validNumbers(int year, int month, int day, float quantity, int i);
 	void print_price(std::string &line);
 };
 

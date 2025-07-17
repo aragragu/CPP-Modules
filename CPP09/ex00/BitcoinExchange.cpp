@@ -45,11 +45,17 @@ void Data_and_Prices::ParseData()
 	int i = 1;
 	while (std::getline(data_base_file, holder)){
 		try{
+			trim(holder);
 			if (i == 1){
-				i++;
-				continue;
+				if (holder != "date,exchange_rate"){
+					std::cerr << "Error: first line of the file must start with <date,exchange_rate>\n";
+					return;
+				}
 			}
-			ValidDBLine(holder, ",");
+			else{
+				if (!holder.empty())
+					ValidDBLine(holder, ",");
+			}
 		}
 		catch(const std::exception& e){
 			std::cerr << e.what() << '\n';
@@ -64,16 +70,21 @@ void Data_and_Prices::ParseData()
 	i = 1;
 	while (std::getline(in_file, line)){
 		try{
+			trim(line);
 			if (i == 1){
-				i++;
-				continue;
+				if (line != "date | value"){
+					std::cerr << "Error: first line of the file must start with <date | value>\n";
+					return;
+				}
 			}
-			if (line.empty()){
-				i++;
-				throw std::invalid_argument("empty line");
+			else{
+				if (line.empty()){
+					i++;
+					continue;
+				}
+				ValidLine(line, "|");
+				print_price(line);
 			}
-			ValidLine(line, "|");
-			print_price(line);
 		}
 		catch(const std::exception& e){
 			std::cerr << e.what() << '\n';
@@ -93,11 +104,15 @@ bool is_num(const std::string &str)
 	if (str.size() == 2)
 	{
 		for (size_t x = 0; x < str.size(); x++){
+			if (x == 0 && (str[x] == '-' || str[x] == '+'))
+				continue;
 			if (!isdigit(str[x]))
 				return false;
 		}
 	}
 	for (size_t i = 0; i < str.size(); ++i){
+		if (i == 0 && (str[i] == '+' || str[i] == '-'))
+			continue;
 		if (!isdigit(str[i])){
 			if (str[i] == '.'){
 				dotCount++;
@@ -179,19 +194,24 @@ void Data_and_Prices::ValidDBLine(std::string &line, std::string to_look){
 	if (!is_num(amount))
 		throw std::invalid_argument("Error: quantity is not a number");
 	quantity = std::strtof(amount.c_str(), NULL);
-	validNumbers(year, month, day, quantity, 0);
+	if (!validNumbers(year, month, day, quantity, 0))
+		throw std::invalid_argument("Error: bad input => " + std::string(date));
 	return;
 }
 
-void Data_and_Prices::validNumbers(int year, int month, int day, float quantity, int i)
+bool Data_and_Prices::validNumbers(int year, int month, int day, float quantity, int i)
 {
 	int maxDays = 0;
 	if ((year < 2009 || year > 2025) || (month < 1 || month > 12) || (day < 1 || day > 31))
-		throw std::invalid_argument("Error: invalid date");
-	if (i == 0 && (quantity < 0.0f || quantity > 1000.0f))
-		throw std::invalid_argument("Error: invalid quantity (must be between 0 and 1000)");
-	if (i == 1 && (quantity < 0.0f || quantity > 150000.0f))
-		throw std::invalid_argument("Error: invalid price (must be between 0 and 150000)");
+		return 0;
+	if (i == 0 && quantity < 0.0)
+		throw std::invalid_argument("Error: not a positive number.");
+	if (i == 0 && quantity > 1000.0f)
+		throw std::invalid_argument("Error: too large a number.");
+	if (i == 1 && quantity < 0.0)
+		throw std::invalid_argument("Error: not a positive number.");
+	if (i == 1 && quantity > 150000.0f)
+		throw std::invalid_argument("Error: too large a number.");
 	switch (month)
 	{
 	case 2:
@@ -210,7 +230,8 @@ void Data_and_Prices::validNumbers(int year, int month, int day, float quantity,
 		break;
 	}
 	if (!(day <= maxDays))
-		throw std::invalid_argument("Error: invalid day");
+		return 0;
+	return 1;
 }
 
 void Data_and_Prices::print_price(std::string &line)
@@ -234,7 +255,6 @@ void Data_and_Prices::print_price(std::string &line)
 		it--;
 		price = quantity * it->second;
 	}
-	std::cout.precision(2);
-	std::cout << date << " => " << quantity << " = " << std::fixed << price << std::endl;
+	std::cout << date << " => " << quantity << " = " << price << std::endl;
 }
 
